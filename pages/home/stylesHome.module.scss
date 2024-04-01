@@ -1,0 +1,23 @@
+.middleContainer{
+min-width: 80%;
+max-width: 100%;
+}
+@media screen and (max-width: 992px) {
+    .middleContainer {
+      width: 100%;
+      min-width: 100%;
+    }
+    .leftContainer{
+        width:'1%';
+    }
+    .logo{
+      display: 'absute';
+      top: 10px;
+      left: 5px;
+      
+    }
+  }
+
+.leftContainer{
+width:'15%'
+}
