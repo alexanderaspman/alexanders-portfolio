@@ -1,7 +1,8 @@
 
+
 .container{
     width:100%;
-    background-color: '#23282E';
+   // background-color: #23282E;
      z-index:1
 }
 .leftContainer{
@@ -48,6 +49,23 @@
 .text_link{
     color: white;
 }
+.modal{
+    transition: all 6.3 ease-out;
+    transform: translateY();
+}
+.modal_open{
+    animation: ease-in-out 3000 3.3 2  random($limit: 1) ;
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    background-color: #be3167;
+}
+.modal_close{
+    animation-timing-function: ease-in;
+   opacity: 0;
+    transform: translateY(-100%);
+    margin-left: -200;
+}
 @media screen and (max-width: 900px) {
     .container{
         width:100%;
@@ -59,7 +77,16 @@
     .container__body{
         margin-top: 70px;
     }
-
+.card{
+  
+}
+.card__btn{
+    background-color: #FCA58A;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: .3s;
+    border-radius: 4px;
+}
         .card__text_title{
             font-size: 10px;
     height:'auto';
