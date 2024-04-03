@@ -13,7 +13,7 @@ const HomePage=() =>{
     <div style={{position:'absolute' ,width:'50%',height:'100%',backgroundColor:'#16191E',right:0}}>
    
     </div>
-     <div style={{width: '100%', backgroundColor: '#23282E', zIndex:1,maxWidth:'1380px'}}>
+     <div className={styles.container} style={{width: '100%', zIndex:1,maxWidth:'1380px'}}>
       <ul>
         <li></li>
         <li></li>
@@ -26,16 +26,17 @@ const HomePage=() =>{
           <Logo/>
           </div>
           <div style={{position:'absolute',paddingLeft:50}}>
-            <div style={{}}>
-          <p style={{marginTop:250,fontWeight:1,fontFamily:'roboto'}}>A FRONTEND DEVELOPER</p>
+
+          <div style={{}} className={styles.card}>
+          <p style={{fontWeight:1,fontFamily:'roboto'}} className={styles.card__text_title}>FRONTEND DEVELOPER</p>
           <div style={{}}>
-          <p style={{marginTop:5,fontWeight:46,fontFamily:'roboto-bold-light',fontSize:60}}>Alexander</p><p style={{marginTop:-20,fontWeight:46,fontFamily:'roboto-bold-light',fontSize:60}}> Aspman</p>
+          <p  className={styles.card__text_center}>Alexander Aspman</p>
           </div>
-          <p style={{fontSize:10}}>
+          <p style={{fontSize:10}} className={styles.card__text_last}>
+
           I would love to contribute to your company!
-            </p> 
-            <p style={{fontSize:10}}>
-              Please send me a message, I like to work hard</p> <p style={{fontSize:10}}>and I do so with a smile.
+           
+              Please send me a message, I work hard and I do so with a smile.
             </p>
             </div><div>
           
@@ -44,8 +45,8 @@ const HomePage=() =>{
           <div  style={{alignItems:'center',height:'60%'}}>
 <hr/>
           </div>
-<div style={{padding:'0 0 0 30px'}}>
-         See my projects
+<div className={styles.card__projects} style={{padding:'0 0 0 30px'}}>
+      <p>See my projects</p>   
     <div style={{width:130,height:100,backgroundColor:'gray'}}></div>
           </div>
          
@@ -63,9 +64,9 @@ const HomePage=() =>{
         />
         </div>
         <span>
-        <p style={{marginTop:50,fontWeight:3, width:160,position:'absolute',marginLeft:-240}}>"I always learn the newest frameworks, becouse I like to chalange my self and evolve</p>
-          <p style={{ writingMode: 'vertical-rl',marginTop:100}}>Link to my github</p>
-          <p style={{ writingMode: 'vertical-rl',marginTop:40}}>Link to my linkedIn</p>
+        <p className={styles.text_quote} style={{}}>"I always learn the newest frameworks, becouse I like to chalange my self and evolve</p>
+          <p className={styles.text_link} style={{ writingMode: 'vertical-rl',marginTop:100}}>Link to my github</p>
+          <p className={styles.text_link}  style={{ writingMode: 'vertical-rl',marginTop:40}}>Link to my linkedIn</p>
         
         </span>
       </div>
