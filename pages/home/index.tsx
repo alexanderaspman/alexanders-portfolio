@@ -51,7 +51,7 @@ const HomePage=() =>{
           </div>
          
         </span>
-        <div >
+        <div>
         
         
 
