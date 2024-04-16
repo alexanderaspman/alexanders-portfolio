@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import Logo from "@/components/logo";
 import style from '@/pages/'
 import HomePage from "./home";
+import LoginComponent from "@/components/loginComponent";
+import Login from "./login";
 const inter = Inter({ subsets: ["latin"] });
 
  
@@ -12,7 +14,8 @@ const imageLoader = ({ src}:any) => {
  
 export default function Home() {
   return (
-      <HomePage/>
+     
+      <Login/>
    
   );
 }

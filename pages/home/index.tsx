@@ -320,9 +320,13 @@ const HomePage=({}:any) =>{
   const [toggleAnimation,setToggleAnimation] =  useState<boolean|any|string[]>(false)
   const [showBlock, setShowBlock] = useState<boolean>()
 
+const animationHandler = async (toggleAnimation:boolean) =>{
+	if(toggleAnimation===false){
+		setToggleAnimation(true)}
+}
+
   useEffect(()=>{
-    if(toggleAnimation===false){
-setToggleAnimation(true)}
+     animationHandler(toggleAnimation)
   },[])
   /*
 const defaultStyle={
@@ -353,7 +357,7 @@ const transitionStyle = {
     <div style={{position:'absolute' ,width:'50%',height:'100%',backgroundColor:'#16191E',right:0}}>
    
     </div>
-     <div className={styles.container} style={{width: '100%', zIndex:1,maxWidth:'1380px'}}>
+     <div className={styles.container}>
       <ul>
         <li></li>
         <li></li>
@@ -404,8 +408,8 @@ const transitionStyle = {
   <ModalDev children={<Image 
           src="https://media.crystallize.com/alexanderaspmannu/24/3/14/1/@1024/portfoliohomescreenimage.avif"
           alt="Picture of the author"
-          width={1300}
-          height={1300}
+          width={1100}
+          height={1100}
           style={{margin:'auto'}}
         />} 
         duration={4000} 
