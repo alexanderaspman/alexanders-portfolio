@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
+import { Inter, Ribeye } from "next/font/google";
 import background from '@/assets/backgroundImage.png'
 import Logo from "@/components/logo";
 import styles  from '@/pages/home/stylesHome.module.scss'
+import { useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
  
@@ -11,18 +12,104 @@ const imageLoader = ({ src}:any) => {
 }
  
 export default function HomePage() {
+  const [animate,setAnimate] = useState(0)
+  const [animateHrWidth,setAnimateHrWidth] = useState(0)
+  const [animateImage,setAnimateImage] = useState(0)
+  const [animateLeftText,setAnimateLeftText] = useState(0)
+  const [animateRightText,setAnimateRightText] = useState(0)
+const animatImage=()=>{
+let animate = 0
+let leftTextAnimate = 0
+let rightTextAnimate = 0
+
+console.log(animate)
+console.log("animate")
+if(animate===200){
+  animate=100
+  
+  
+  
+}
+else if(animate===40){
+ 
+  leftTextAnimate++
+  setAnimateLeftText(leftTextAnimate)
+ 
+}
+else if(animate===100){
+  rightTextAnimate++
+  setAnimateRightText(rightTextAnimate)
+}
+else{
+  animate++
+  setAnimateImage(animate)
+}
+
+}
+const animateOpacityImage = animatImage
+  function myMove() {
+    console.log("click")
+    let id:any = null;
+    let pos = 0;
+    let width = 130
+    let animate = 0
+    let leftTextAnimate = 0
+    let rightTextAnimate = 0
+    id = setInterval(frame, 15);
+    function frame(id:number) {
+      if (pos === 230) {
+      pos = 0
+      width = 130
+      animate = 100
+     leftTextAnimate = 100
+      setAnimate(pos)
+      setAnimateHrWidth(width)
+      
+        
+      }
+      
+      else if(animate===100){
+        rightTextAnimate++
+        pos=30
+        setAnimate(20)
+        setAnimateHrWidth(110)
+
+        setAnimateRightText(rightTextAnimate)
+      }
+       else {
+        pos++; 
+        animate++; 
+        width--;
+        setAnimate(pos)
+        setAnimateImage(animate)
+        setAnimateHrWidth(width)
+        setAnimateLeftText(animate)
+        if(animate===40){
+ 
+          leftTextAnimate++
+          setAnimateLeftText(leftTextAnimate)
+         
+        }
+       // console.log(pos)
+      }
+    }
+  }
   return (
     <main className="flex min-h-screen items-center justify-center p-24" style={{ flex: 1 ,backgroundColor:'#131418'}}>
     <div style={{position:'absolute' ,width:'50%',height:'100%',backgroundColor:'#16191E',right:0}}>
    
     </div>
-     <div style={{width: '90%', backgroundColor: '#23282E', zIndex:1}}>className
+     <div style={{width: '90%', backgroundColor: '#23282E', zIndex:1}} className={styles.container}>
       <ul>
         <li></li>
         <li></li>
         <li></li>
         </ul>
-      <div style={{width:'auto',height:40}}></div>
+      <div style={{height:40,marginLeft:animate,width:animateHrWidth,color:'white'}} onClick={
+      ()=> { myMove(),animatImage}
+      }><hr id="animate" style={{marginLeft:animate,width:animateHrWidth,color:'white'}}onClick={
+      ()=>  myMove()
+      }/>sss</div>
       <div style={{ display: 'flex', justifyContent: 'space-between'}}>
         <span style={{justifyContent:'space-between'}}>
        <div className={styles.logo}>
@@ -31,7 +118,7 @@ export default function HomePage() {
        
           </div>
           <div  style={{alignItems:'center',height:'55%'}}>
-<hr/>
+<hr style={{marginLeft:animate,width:animateHrWidth,color:'white'}}/>
           </div>
 <div style={{padding:'0 0 0 30px'}}>
          See my projects
@@ -40,10 +127,10 @@ export default function HomePage() {
         </span>
         <div style={{maxWidth:'100%',width:'100%',height:'auto'}}>
           <div style={{position:'absolute',display:'flex', justifyContent: 'space-between'}}>
-            <div style={{}}>
-          <p style={{marginTop:100,fontWeight:1,fontFamily:'roboto'}} >A FRONTEND DEVELOPER</p>
+            <div style={{}}> 
+          <p style={{marginTop:100,fontWeight:1,fontFamily:'roboto', opacity:`${animateLeftText}%`}} >A FRONTEND DEVELOPER</p>
           <div style={{}}>
-          <p style={{marginTop:5,fontWeight:46,fontFamily:'roboto-bold-light',fontSize:60}} className={styles.leftText}>Alexander</p>
+          <p style={{marginTop:5,fontWeight:46,fontFamily:'roboto-bold-light',fontSize:60, opacity:`${animateRightText}%`}} className={styles.leftText}>Alexander</p>
           <p style={{marginTop:-20,fontWeight:46,fontFamily:'roboto-bold-light',fontSize:60}}  className={styles.leftText}> Aspman</p>
           </div>
           <p style={{fontSize:10}}>
@@ -62,7 +149,7 @@ export default function HomePage() {
           alt="Picture of the author"
           width={800}
           height={800}
-          style={{margin:'auto'}}
+          style={{margin:'auto',opacity:`${animateImage}%`,animation:'ease-in',transformStyle:'inherit'}}
           className={''}
         />
         </div>
