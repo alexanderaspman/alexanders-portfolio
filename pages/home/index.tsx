@@ -2,12 +2,16 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import Logo from "@/components/logo";
 import styles from '@/pages/home/styleHome.module.scss'
+import React,{ useState } from "react";
+import Card from "@/components/card";
 
 const imageLoader = ({ src}:any) => {
   return `https://app.crystallize.com/@alexanderaspmannu/en/assets/photo/alexanderaspmannu/24/3/14/1/${src}`
 }
  
 const HomePage=() =>{
+
+  const [flipCard,setFlipCard] = useState<boolean>(false)
   return (
     <main className={`flex min-h-screen ` } style={{backgroundColor:'#131418',width:'100%'}}>
     <div style={{position:'absolute' ,width:'50%',height:'100%',backgroundColor:'#16191E',right:0}}>
@@ -42,13 +46,10 @@ const HomePage=() =>{
           
           </div>
           </div>
-          <div  style={{alignItems:'center',height:'60%'}}>
+          <div  style={{alignItems:'center',height:'100%'}}>
 <hr/>
           </div>
-<div style={{padding:'0 0 0 30px'}}>
-         See my projects
-    <div style={{width:130,height:100,backgroundColor:'gray'}}></div>
-          </div>
+
          
         </span>
         <div className={styles.container__body}>
@@ -60,16 +61,36 @@ const HomePage=() =>{
           alt="Picture of the author"
           width={1000}
           height={1000}
-          style={{margin:'auto'}}
+          className={styles.picture__creator}
         />
         </div>
-        <span>
-        <p style={{marginTop:50,fontWeight:3, width:160,position:'absolute',marginLeft:-240}}>"I always learn the newest frameworks, becouse I like to chalange my self and evolve</p>
-          <p style={{ writingMode: 'vertical-rl',marginTop:100}}>Link to my github</p>
-          <p style={{ writingMode: 'vertical-rl',marginTop:40}}>Link to my linkedIn</p>
+        <Card/>
+        <div className={styles.card__flip }
+    ><div className={styles.flip_card}>
+    <div className={styles.flip_card_inner}>
+      <div className={styles.flip_card_front}>
+         See my projects
+         <div className={styles.flip_card_front}style={{width:130,height:100,backgroundColor:'gray'}}></div>
+
+      </div>
+      <div className={styles.flip_card_back}>
+        <h1>John Doe</h1> 
+        <p>Architect & Engineer</p> 
+        <p>We love that guy</p>
+      </div>
+    </div>
+  </div>
+
+    </div>
+        <span className={styles.card_text_vertial}>
+        <p style={{}}>"I always learn the newest frameworks, becouse I like to chalange my self and evolve</p>
+          <p style={{writingMode: 'vertical-rl',marginTop:240 , position:'absolute',right:0}} className={styles.link__right}>Link to my github</p>
+          <p style={{ writingMode: 'vertical-rl',marginTop:40 , position:'absolute',right:0}}className={styles.link__right}>Link to my linkedIn</p>
         
         </span>
-      </div>
+        
+    
+          </div>
       </div>
       
     </main>
