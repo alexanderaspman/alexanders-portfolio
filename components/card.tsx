@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 const Card = () => {
@@ -13,7 +14,7 @@ const Card = () => {
        please<br/> click here<br/> to projects
       </div>
       <div className="card__face card__face--back">
-        Back
+        Back<Image src={''} alt={''}/>
       </div>
     </div>
   );
